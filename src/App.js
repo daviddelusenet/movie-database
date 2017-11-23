@@ -4,22 +4,30 @@ import './App.css';
 // Import child components
 import Movie from './Movie';
 
-const Movies = [
-  {
-    "id": 1,
-    "title": "Casino",
-    "desc": "A tale of greed, deception, money, power, and murder occur between two best friends: a mafia enforcer and a casino executive, compete against each other over a gambling empire, and over a fast living and fast loving socialite."
-  }
-];
-
 class App extends Component {
+  state = {
+    movies: []
+  };
+
+  async componentDidMount() {
+    try {
+      const Res = await fetch('https://api.themoviedb.org/3/discover/movie?api_key=ac79f02ad78d416cdde11b89e561391a&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1');
+      const Movies = await Res.json();
+      this.setState({
+        movies: Movies.results
+      });
+    } catch(e) {
+      console.error(e);
+    }
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App__header">
           <h1 className="App__title">Movie Database</h1>
         </header>
-        {Movies.map((movie) => <Movie key={movie.id} movie={movie} />)}
+        {this.state.movies.map((movie) => <Movie key={movie.id} movie={movie} />)}
       </div>
     );
   }
