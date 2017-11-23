@@ -4,7 +4,7 @@ import './App.css';
 // Import child components
 import Movie from './Movie';
 
-class App extends Component {
+export default class App extends Component {
   state = {
     movies: []
   };
@@ -32,5 +32,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;
