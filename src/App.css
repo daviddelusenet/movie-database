@@ -5,10 +5,11 @@
 .App__header {
   background-color: #222;
   padding: 40px 20px;
-  color: white;
 }
 
 .App__title {
+  color: white;
+  text-decoration: none;
   margin: 0;
   font-size: 24px;
 }
