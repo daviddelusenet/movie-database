@@ -13,7 +13,7 @@ const MoviePreview = ({ id, title, poster_path }) => (
 );
 
 MoviePreview.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   poster_path: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired
 };
