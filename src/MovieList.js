@@ -1,11 +1,11 @@
 /* eslint react/no-did-mount-set-state: 0, no-console: 0 */
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 
 // Import child components
 import MoviePreview from './MoviePreview';
 
-export default class MovieList extends Component {
+export default class MovieList extends PureComponent {
   state = {
     movies: []
   };
