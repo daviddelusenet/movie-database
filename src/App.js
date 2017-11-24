@@ -14,7 +14,7 @@ import MovieList from './MovieList';
 
 const App = () => (
   <Router>
-    <MovieDatabase>
+    <div>
       <Header>
         <Title to="/">Movie Database</Title>
       </Header>
@@ -22,19 +22,16 @@ const App = () => (
         <Route exact path="/" component={MovieList} />
         <Route path="/movies/:id" component={MovieDetail} />
       </Switch>
-    </MovieDatabase>
+    </div>
   </Router>
 );
 
 export default App;
 
-const MovieDatabase = styled.div`
-  text-align: center;
-`;
-
 const Header = styled.header`
   background-color: #111;
   padding: 40px 20px;
+  text-align: center;
 `;
 
 const Title = styled(Link)`

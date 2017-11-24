@@ -1,8 +1,9 @@
 /* eslint react/no-did-mount-set-state: 0, no-console: 0 */
 import React, { Component } from 'react';
+import styled from 'styled-components';
 
 // Import child components
-import Movie from './Movie';
+import MoviePreview from './MoviePreview';
 
 export default class MovieList extends Component {
   state = {
@@ -23,9 +24,15 @@ export default class MovieList extends Component {
 
   render() {
     return (
-      <div>
-        {this.state.movies.map(movie => <Movie key={movie.id} movie={movie} />)}
-      </div>
+      <MovieGrid>
+        {this.state.movies.map(movie => <MoviePreview key={movie.id} {...movie} />)}
+      </MovieGrid>
     );
   }
 }
+
+const MovieGrid = styled.div`
+  display: flex;
+  padding: 40px 20px;
+  flex-wrap: wrap;
+`;
