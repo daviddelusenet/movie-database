@@ -1,19 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-export default class Movie extends Component {
-  static propTypes = {
-    movie: PropTypes.shape({
-      title: PropTypes.string.isRequired
-    })
-  };
+const PosterPath = 'http://image.tmdb.org/t/p/w154';
 
-  render() {
-    return(
-      <div>
-        <h3 className="Movie__title">{this.props.movie.title}</h3>
-        <p className="Movie__desc">{this.props.movie.desc}</p>
-      </div>
-    );
-  }
+const Movie = ({ movie }) => (
+  <div>
+    <img alt={movie.title} src={PosterPath + movie.poster_path} />
+  </div>
+);
+
+Movie.propTypes = {
+  movie: PropTypes.shape({
+    title: PropTypes.string.isRequired
+  }).isRequired
 };
+
+export default Movie;
