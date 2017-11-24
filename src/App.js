@@ -1,3 +1,4 @@
+/* eslint react/no-did-mount-set-state: 0, no-console: 0 */
 import React, { Component } from 'react';
 import './App.css';
 
@@ -16,7 +17,7 @@ export default class App extends Component {
       this.setState({
         movies: Movies.results
       });
-    } catch(e) {
+    } catch (e) {
       console.error(e);
     }
   }
@@ -27,7 +28,7 @@ export default class App extends Component {
         <header className="App__header">
           <h1 className="App__title">Movie Database</h1>
         </header>
-        {this.state.movies.map((movie) => <Movie key={movie.id} movie={movie} />)}
+        {this.state.movies.map(movie => <Movie key={movie.id} movie={movie} />)}
       </div>
     );
   }
